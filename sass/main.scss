@@ -1,0 +1,213 @@
+@import 'colors';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// ogólne ustawienia
+
+body {
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    background-color: $bg-color;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+.underline {
+    height: 3px;
+    width: 100px;
+    background-color: $orange;
+    margin: 0 auto 30px;
+}
+
+// nav
+
+nav {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 13px;
+
+    .navbar-brand {
+        font-size: 14px;
+    }
+
+    .navbar-toggler {
+        padding: 1px 3px;
+    }
+
+    a,
+    i {
+        color: $black-color;
+        font-weight: normal;
+    }
+
+    a:hover {
+        color: $orange;
+    }
+
+    .fa-bars {
+        color: $black-color;
+        padding: 1px;
+    }
+
+    .active {
+        color: $orange;
+    }
+
+    .navbar-center {
+        width: 90vw;
+        max-width: 1300px;
+    }
+
+    .orange-text {
+        color: $orange;
+        font-weight: bold;
+    }
+}
+
+// main, header
+
+.page {
+    width: 90vw;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-top: 10px;
+
+    .hero {
+        position: relative;
+        height: 40vh;
+        background: url('../img/bread-g396e7d657_640.jpg') center/cover no-repeat;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .hero-shadow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        z-index: 0;
+    }
+
+    .hero-text {
+        text-align: center;
+        padding: 0 10px;
+        color: white;
+        z-index: 2;
+    }
+}
+
+// aboutus
+
+.aboutus {
+    text-align: center;
+    padding-top: 20px;
+
+    .fa-carrot,
+    .fa-cookie,
+    .fa-clock {
+        font-size: 26px;
+    }
+
+    .aboutus-card-title {
+        text-transform: uppercase;
+    }
+
+    .icons {
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+}
+
+// dishes
+
+.dishes {
+    padding-top: 20px;
+
+    .carousel {
+        margin: 0 auto;
+        width: 45vw;
+    }
+
+    .carousel-item {
+        position: relative;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+}
+
+.card {
+    h5 {
+        text-align: center;
+    }
+
+    .info-dishes {
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+
+@media(min-width: 300px) {
+    nav {
+        font-size: 14px;
+
+        .navbar-brand {
+            font-size: 16px;
+        }
+    }
+}
+
+// Iphon SE
+@media (min-width: 375px) {
+    nav {
+        font-size: 15px;
+
+        .navbar-brand {
+            font-size: 18px;
+        }
+
+        .navbar-toggler {
+            padding: 2px 6px;
+        }
+    }
+}
+
+// @media (min-width: 576px) {
+//     .aboutus-card-text {
+//         font-size: 18px;
+//     }
+// }
+
+@media (min-width: 992px) {
+    .page {
+        padding-top: 20px;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    nav {
+
+        font-size: 16px;
+
+        .navbar-brand {
+            font-size: 20px;
+        }
+
+    }
+}
