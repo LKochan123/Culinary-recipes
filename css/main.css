@@ -1,0 +1,163 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  background-color: whitesmoke;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+.underline {
+  height: 3px;
+  width: 100px;
+  background-color: rgb(199, 82, 15);
+  margin: 0 auto 30px;
+}
+
+nav {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 13px;
+}
+nav .navbar-brand {
+  font-size: 14px;
+}
+nav .navbar-toggler {
+  padding: 1px 3px;
+}
+nav a,
+nav i {
+  color: black;
+  font-weight: normal;
+}
+nav a:hover {
+  color: rgb(199, 82, 15);
+}
+nav .fa-bars {
+  color: black;
+  padding: 1px;
+}
+nav .active {
+  color: rgb(199, 82, 15);
+}
+nav .navbar-center {
+  width: 90vw;
+  max-width: 1300px;
+}
+nav .orange-text {
+  color: rgb(199, 82, 15);
+  font-weight: bold;
+}
+
+.page {
+  width: 90vw;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+.page .hero {
+  position: relative;
+  height: 40vh;
+  background: url("../img/bread-g396e7d657_640.jpg") center/cover no-repeat;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.page .hero-shadow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+.page .hero-text {
+  text-align: center;
+  padding: 0 10px;
+  color: white;
+  z-index: 2;
+}
+
+.aboutus {
+  text-align: center;
+  padding-top: 20px;
+}
+.aboutus .fa-carrot,
+.aboutus .fa-cookie,
+.aboutus .fa-clock {
+  font-size: 26px;
+}
+.aboutus .aboutus-card-title {
+  text-transform: uppercase;
+}
+.aboutus .icons {
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.dishes {
+  padding-top: 20px;
+}
+.dishes .carousel {
+  margin: 0 auto;
+  width: 45vw;
+}
+.dishes .carousel-item {
+  position: relative;
+}
+.dishes .carousel-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.card h5 {
+  text-align: center;
+}
+.card .info-dishes {
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (min-width: 300px) {
+  nav {
+    font-size: 14px;
+  }
+  nav .navbar-brand {
+    font-size: 16px;
+  }
+}
+@media (min-width: 375px) {
+  nav {
+    font-size: 15px;
+  }
+  nav .navbar-brand {
+    font-size: 18px;
+  }
+  nav .navbar-toggler {
+    padding: 2px 6px;
+  }
+}
+@media (min-width: 992px) {
+  .page {
+    padding-top: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  nav {
+    font-size: 16px;
+  }
+  nav .navbar-brand {
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=main.css.map */
