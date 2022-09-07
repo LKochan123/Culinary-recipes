@@ -10,6 +10,10 @@
 
 // ogólne ustawienia
 
+html {
+    scroll-padding-top: 53px;
+}
+
 body {
     position: relative;
     font-family: 'Montserrat', sans-serif;
@@ -27,12 +31,22 @@ h2 {
     margin: 0 auto 30px;
 }
 
+.seperate-recipes {
+    border: 1px dashed $orange;
+}
+
+.shadow-bg {
+    background-color: whitesmoke;
+}
+
 // nav
 
 nav {
     text-transform: uppercase;
     text-align: center;
     font-size: 13px;
+    transition: background-color .6s;
+    z-index: 5;
 
     .navbar-brand {
         font-size: 14px;
@@ -138,19 +152,28 @@ nav {
         width: 45vw;
     }
 
-    .carousel-item {
-        position: relative;
-    }
-
     .carousel-caption {
         position: absolute;
         left: 0;
         right: 0;
         background-color: rgba(0, 0, 0, .8);
     }
+
+    .section-title {
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+        transition: text-decoration .5s;
+    }
+    
+    .section-title:hover {
+        text-decoration: underline;
+    }
 }
 
 .card {
+    margin: 0 10px;
+
     h5 {
         text-align: center;
     }
@@ -159,7 +182,61 @@ nav {
         font-size: 14px;
         text-align: center;
     }
+
+    .card-img-top {
+        transition: opacity .3s;
+    }
+
+    .card-img-top:hover {
+        opacity: 0.7;
+    }
 }
+
+//recipes
+
+.recipes-mobile {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.mobile-recipe-section {
+    margin: 20px auto;
+}
+
+.recipes {
+    padding-top: 20px;
+    text-align: center;
+
+    .afadga {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 50px;
+    }
+    
+    .image {
+        height: 240px;
+        width: 360px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    p, 
+    ul,
+    .text {
+        font-size: 14px;
+    }
+
+    .text {
+        max-width: 60vw;
+        margin: 30px auto;
+    }
+}
+
+
 
 
 @media(min-width: 300px) {
@@ -187,9 +264,10 @@ nav {
     }
 }
 
-// @media (min-width: 576px) {
-//     .aboutus-card-text {
-//         font-size: 18px;
+// @media (min-width: 768px) {
+//     .card-group {
+//         display: flex;
+//         flex-flow: row;
 //     }
 // }
 
@@ -209,5 +287,22 @@ nav {
             font-size: 20px;
         }
 
+    }
+
+    .recipes {
+        .image {
+            height: 300px;
+            width: 450px;
+        }
+
+        h3 {
+            font-size: 28px;
+        }
+
+        p, 
+        ul,
+        .text {
+            font-size: 16px;
+        }
     }
 }

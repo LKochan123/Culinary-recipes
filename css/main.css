@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+html {
+  scroll-padding-top: 53px;
+}
+
 body {
   position: relative;
   font-family: "Montserrat", sans-serif;
@@ -23,10 +27,20 @@ h2 {
   margin: 0 auto 30px;
 }
 
+.seperate-recipes {
+  border: 1px dashed rgb(199, 82, 15);
+}
+
+.shadow-bg {
+  background-color: whitesmoke;
+}
+
 nav {
   text-transform: uppercase;
   text-align: center;
   font-size: 13px;
+  transition: background-color 0.6s;
+  z-index: 5;
 }
 nav .navbar-brand {
   font-size: 14px;
@@ -111,22 +125,76 @@ nav .orange-text {
   margin: 0 auto;
   width: 45vw;
 }
-.dishes .carousel-item {
-  position: relative;
-}
 .dishes .carousel-caption {
   position: absolute;
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.8);
 }
+.dishes .section-title {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  transition: -webkit-text-decoration 0.5s;
+  transition: text-decoration 0.5s;
+  transition: text-decoration 0.5s, -webkit-text-decoration 0.5s;
+}
+.dishes .section-title:hover {
+  text-decoration: underline;
+}
 
+.card {
+  margin: 0 10px;
+}
 .card h5 {
   text-align: center;
 }
 .card .info-dishes {
   font-size: 14px;
   text-align: center;
+}
+.card .card-img-top {
+  transition: opacity 0.3s;
+}
+.card .card-img-top:hover {
+  opacity: 0.7;
+}
+
+.recipes-mobile {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.mobile-recipe-section {
+  margin: 20px auto;
+}
+
+.recipes {
+  padding-top: 20px;
+  text-align: center;
+}
+.recipes .afadga {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 50px;
+}
+.recipes .image {
+  height: 240px;
+  width: 360px;
+}
+.recipes h3 {
+  font-size: 24px;
+}
+.recipes p,
+.recipes ul,
+.recipes .text {
+  font-size: 14px;
+}
+.recipes .text {
+  max-width: 60vw;
+  margin: 30px auto;
 }
 
 @media (min-width: 300px) {
@@ -159,5 +227,17 @@ nav .orange-text {
   }
   nav .navbar-brand {
     font-size: 20px;
+  }
+  .recipes .image {
+    height: 300px;
+    width: 450px;
+  }
+  .recipes h3 {
+    font-size: 28px;
+  }
+  .recipes p,
+.recipes ul,
+.recipes .text {
+    font-size: 16px;
   }
 }/*# sourceMappingURL=main.css.map */
