@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
 
 <body data-bs-spy="scroll" data-bs-target="#navbar">
 
-    <nav id="navbar" class="navbar navbar-expand-lg position-sticky top-0">
+    <nav id="navbar" class="navbar navbar-expand-lg position-sticky top-0 shadow-bg">
         <div class="container navbar-center">
             <a class="navbar-brand" href="#"><i class="fa-solid fa-utensils"></i> Babcine<span class="orange-text"> przysmaki</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -50,7 +50,7 @@
             <div class="aboutus-title">
                 <h2>O nas</h2>
                 <div class="underline"></div>
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-sm-6 col-md-4 text-center icons">
                         <p><i class="fa-solid fa-carrot"></i></p>
                         <h5 class="aboutus-card-title mb-1">Zdrowe produkty</h5>
@@ -62,7 +62,7 @@
                         <p class="aboutus-card-text">Wpasowanie się w cudze gusta nie stanowi dla nas wyzwania!</p>
                     </div>
                     <div class="col-sm-6 col-md-4 text-center icons">
-                        <p><i class="fa-regular fa-clock"></i></p>
+                        <p><i class="fa-solid fa-clock"></i></p>
                         <h5 class="aboutus-card-title mb-1">Czas</h5>
                         <p class="aboutus-card-text">Szanujemy czas dlatego z nami zaoszczędzisz go o wiele więcej!</p>
                     </div>
@@ -70,7 +70,7 @@
             </div>
         </section>
 
-        <section id="maindishes" class="dishes">
+        <section id="maindishes" class="dishes pt-4">
             <div class="dishes-title">
                 <h2 class="text-center">Dania główne</h2>
                 <div class="underline"></div>
@@ -119,31 +119,88 @@
               <!-- MOBILE -->
               <div class="card-group d-lg-none">
                 <div class="card">
-                  <a href="kluski_slaskie.html"><img src="./img/kluski1920.webp" class="card-img-top main-dish-1" alt="kluski śląskie"></a>
+                  <a href="kluski_slaskie.html"><img src="./img/kluski1920.webp" class="card-img-top main-dish-1"
+                     alt="kluski śląskie"></a>
                   <div class="card-body">
                     <h5 class="card-title">Kluski śląskie</h5>
-                    <p class="info-dishes">35min | 1 625kcal | łatwe w przygotowaniu</p>
+                    <div class="row"> 
+                      <div class="col-4 col-sm-12 text-center">
+                        <p class="mb-0"><i class="fa-regular fa-clock"></i></p>
+                        <p>35min</p>
+                      </div>
+                      <div class="col-4 col-sm-12 text-center">
+                        <p class="mb-0"><i class="fa-solid fa-utensils"></i></p>
+                        <p>1200kcal</p>
+                      </div>
+                      <div class="col-4 col-sm-12 text-center">
+                        <p class="mb-0"><i class="fa-regular fa-star"></i></i></p>
+                        <p>łatwe</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+
                 <div class="card">
                   <a href="strogonow.html"><img src="./img/strogonow_1920.jpg" class="card-img-top main-dish-2" alt="strogonow"></a>
                   <div class="card-body">
                     <h5 class="card-title">Strogonow</h5>
-                    <p class="info-dishes">35min | 1 625kcal | łatwe w przygotowaniu</p>
+                    <div class="row"> 
+                      <div class="col-4 col-sm-12 text-center">
+                        <p class="mb-0"><i class="fa-regular fa-clock"></i></p>
+                        <p>35min</p>
+                      </div>
+                      <div class="col-4 col-sm-12 text-center">
+                        <p class="mb-0"><i class="fa-solid fa-utensils"></i></p>
+                        <p>1200kcal</p>
+                      </div>
+                      <div class="col-4 col-sm-12 text-center">
+                        <p class="mb-0"><i class="fa-regular fa-star"></i></i></p>
+                        <p>łatwe</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+
                 <div class="card">
                   <a href="zrazy.html"><img src="./img/zrazy1920.jpg" class="card-img-top main-dish-3" alt="zrazy"></a>
                   <div class="card-body">
                     <h5 class="card-title">Zrazy</h5>
-                    <p class="info-dishes">35min | 1 625kcal | łatwe w przygotowaniu</p>
+                    <div class="row"> 
+                      <div class="col-4 col-sm-12 text-center">
+                        <p class="mb-0"><i class="fa-regular fa-clock"></i></p>
+                        <p>35min</p>
+                      </div>
+                      <div class="col-4 col-sm-12 text-center">
+                        <p class="mb-0"><i class="fa-solid fa-utensils"></i></p>
+                        <p>1200kcal</p>
+                      </div>
+                      <div class="col-4 col-sm-12 text-center">
+                        <p class="mb-0"><i class="fa-regular fa-star"></i></i></p>
+                        <p>łatwe</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
         </section>
+
+        <section id="cakes" class="cakes pt-4">
+
+          <div class="cakes-title">
+            <h2 class="text-center">Wypieki</h2>
+            <div class="underline"></div>
+          </div>
+
+        </section>
+
     </main>
 
-    <section style="height: 200vh;"></section>
+    <!-- <section style="height: 200vh;"></section> -->
+
+    <footer class="text-light text-center mt-4 py-2 footer">
+      <p class="mb-0"> &copy; 2022 | Babcine przysmaki <a href="https://github.com/LKochan123/Culinary-recipes" target="_blank">
+        <i class="fa-brands fa-github"></i></a> </p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
