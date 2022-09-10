@@ -27,10 +27,6 @@ h2 {
   margin: 0 auto 30px;
 }
 
-.seperate-recipes {
-  border: 1px dashed rgb(199, 82, 15);
-}
-
 .shadow-bg {
   background-color: whitesmoke;
 }
@@ -139,25 +135,24 @@ nav .orange-text {
 .dishes .section-title:hover {
   text-decoration: underline;
 }
-
-.card {
+.dishes .card {
   margin: 0 10px;
 }
-.card .card-body p:last-child {
+.dishes .card .card-body p:last-child {
   font-size: 13px;
 }
-.card h5 {
+.dishes .card h5 {
   text-align: center;
   padding-bottom: 10px;
 }
-.card .info-dishes {
+.dishes .card .info-dishes {
   font-size: 14px;
   text-align: center;
 }
-.card .card-img-top {
+.dishes .card .card-img-top {
   transition: opacity 0.3s;
 }
-.card .card-img-top:hover {
+.dishes .card .card-img-top:hover {
   opacity: 0.7;
 }
 
@@ -196,6 +191,10 @@ nav .orange-text {
 .recipes .text {
   max-width: 60vw;
   margin: 30px auto;
+}
+
+.cakes .card {
+  margin: 10px 10px;
 }
 
 .footer {
