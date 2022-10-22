@@ -1,2 +1,1 @@
-#### Blog about culinary topics by Django. 
-#### Soon more ingo
+#### Blog about culinary topics by Django. Soon more info
