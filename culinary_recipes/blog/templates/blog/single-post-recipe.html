@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title  %}
+    {{ post.title }}
+{% endblock  %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/single-post-recipe.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <h2>{{ post.title }}</h2>
+    <div class="underline"></div>
+
+    <main>
+        <section class="photo-and-ingridients row">
+            <div class="ingridients col-md-6">
+                <div class="box">
+                    <h5>Niezbędne składniki:</h5>
+                    <ul>
+                        {% for ingridient in ingridients %}
+                            <li>{{ ingridient }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="photo box col-md-6">
+                <img src="{% static "blog/img/"|add:post.image %}" alt="{{ post.title }}">
+            </div>
+        </section>
+
+        <div class="text">
+            <p>{{ post.content }}.</p>
+        </div>
+    </main>
+{% endblock %}

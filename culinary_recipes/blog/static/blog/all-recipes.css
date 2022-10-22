@@ -1,0 +1,27 @@
+h2 {
+    font-size: 26px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 60px;
+}
+
+.underline {
+    height: 3px;
+    width: 150px;
+    background-color: rgb(199, 82, 15);
+    margin: 0 auto 30px;
+    margin-bottom: 30px;
+}
+
+.shadow-bg {
+    background-color: whitesmoke;
+}
+
+.post {
+    padding: 25px 0;
+}
+
+/* .posts-section {
+    width: 70%;
+    margin: 0 auto;
+} */

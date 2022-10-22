@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title  %}
+    Baza wszystkich przepisów
+{% endblock  %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post.css" %}">
+    <link rel="stylesheet" href="{% static "blog/all-recipes.css" %}">
+{% endblock %}
+
+{% block content %}
+    <h2>Tutaj znajdziesz wszystkie przepisy!</h2>
+    <div class="underline"></div>
+
+    <div class="row justify-content-center posts-section">
+        {% for post in all_posts %}
+            {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </div>
+    
+{% endblock %}

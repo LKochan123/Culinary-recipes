@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title  %}
+    Babcine przysmaki
+{% endblock  %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post.css" %}">
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section id="aboutus" class="aboutus pt-4">
+        <div class="aboutus-title">
+            <h2>O nas</h2>
+            <div class="underline"></div>
+            <div class="row justify-content-center icon-section">
+                <div class="col-sm-6 col-md-4 text-center icons">
+                    <p><i class="fa-solid fa-carrot"></i></p>
+                    <h5 class="aboutus-card-title mb-1">Zdrowe produkty</h5>
+                    <p class="icon-text">Stosujemy wiele warzyw i owoców najlepszej jakości!</p>
+                </div>
+                <div class="col-sm-6 col-md-4 text-center icons">
+                    <p><i class="fa-solid fa-cookie"></i></p>
+                    <h5 class="aboutus-card-title mb-1">Smak</h5>
+                    <p class="icon-text">Wpasowanie się w cudze gusta nie stanowi dla nas wyzwania!</p>
+                </div>
+                <div class="col-sm-6 col-md-4 text-center icons">
+                    <p><i class="fa-solid fa-clock"></i></p>
+                    <h5 class="aboutus-card-title mb-1">Czas</h5>
+                    <p class="icon-text">Szanujemy czas dlatego z nami zaoszczędzisz go o wiele więcej!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="best-recipes" class="best-recipes">
+        <h2>Najnowsze przepisy</h2>
+        <div class="underline"></div>
+
+        <div class="row justify-content-center posts-section">
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </div>
+    </section>
+    
+    <section id="other">
+        <h2>Inne</h2>
+        <div class="underline"></div>
+    </section>
+{% endblock %}

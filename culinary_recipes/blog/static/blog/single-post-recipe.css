@@ -1,0 +1,61 @@
+.shadow-bg {
+    background-color: whitesmoke;
+}
+
+h2 {
+    font-size: 26px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 30px;
+}
+
+.underline {
+    height: 3px;
+    width: 100px;
+    background-color: rgb(199, 82, 15);
+    margin: 0 auto 30px;
+}
+
+.photo-and-ingridients {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ingridients {
+    text-align: center;
+}
+
+.ingridients ul {
+    list-style: circle;
+}
+
+.photo {
+    width: 300px;
+}
+
+.photo img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.text {
+    text-align: center;
+    font-size: 15px;
+}
+
+@media (min-width: 576px) {
+    .photo {
+        width: 300px;
+        height: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    .text {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
