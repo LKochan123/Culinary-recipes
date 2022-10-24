@@ -7,6 +7,7 @@
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static "blog/single-post-recipe.css" %}">
+    <link rel="stylesheet" href="{% static "blog/comments.css" %}">
 {% endblock  %}
 
 {% block content %}
@@ -26,7 +27,7 @@
                 </div>
             </div>
             <div class="photo box col-md-6">
-                <img src="{% static "blog/img/"|add:post.image %}" alt="{{ post.title }}">
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
             </div>
         </section>
 
@@ -34,4 +35,21 @@
             <p>{{ post.content }}.</p>
         </div>
     </main>
+
+    <section class="comments-section">
+        {% csrf_token %}
+        <form action="{% url "single-recipe-page" post.slug %}" method="POST">
+            {% for input in comment_input_section %}
+                <div class="form-section">
+                    {{ input.label_tag }}
+                    {{ input }}
+                    {{ input.errors }}
+                </div>
+            {% endfor %}
+            <div class="buttons">
+                <button class="delete-comment-btn">Anuluj</button>
+                <button class="add-comment">Skomentuj</button>
+            </div>
+        </form>
+    </section>
 {% endblock %}

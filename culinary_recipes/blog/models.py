@@ -32,7 +32,7 @@ class Level(models.Model):
 class Post(models.Model):
     date = models.DateField(auto_now=True)
     title = models.CharField(max_length=30)
-    image = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="posts", null=True)
     rating = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(10)], default=None)
     short_description = models.CharField(max_length=100)
@@ -46,3 +46,11 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.title} {self.date} {self.author}"
+
+
+class Comment(models.Model):
+    nickname = models.CharField(max_length=30)
+    date = models.DateField(auto_now=True)
+    text = models.TextField(max_length=200)
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comments")

@@ -3,7 +3,7 @@
 <div class="col-sm-6 col-lg-4 text-center">
     <article class="post">
         <a href="{% url "single-recipe-page" post.slug %}">
-            <img src="{% static "blog/img/"|add:post.image %}" alt="{{ post.title }}" />
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" />
             <div class="post__content">
                 <h3>{{ post.title }}</h3>
                 <p>{{ post.short_description }}</p>

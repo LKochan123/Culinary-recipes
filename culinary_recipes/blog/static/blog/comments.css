@@ -1,0 +1,55 @@
+.comments-section {
+    margin-top: 30px;
+}
+
+form {
+    margin: 0 auto;
+    min-width: 270px;
+    width: 80%;
+    max-width: 550px;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .8);
+    border: 2px solid black;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.form-section label {
+    font-weight: bold;
+}
+
+.form-section textarea,
+.form-section input {
+    padding: 2px;
+    border: 1px solid rgb(26, 25, 25); 
+}
+
+.form-section textarea {
+    height: 60px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.buttons button {
+    padding: 5px 8px;
+    margin: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(187, 121, 30);
+    border: 2px solid rgb(187, 121, 30);
+    transition: background-color .3s;
+}
+
+.buttons button:hover {
+    background-color: rgb(180, 127, 53);
+}
