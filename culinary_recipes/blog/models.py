@@ -45,7 +45,7 @@ class Post(models.Model):
     ingridients = models.ManyToManyField(Ingridient)
 
     def __str__(self):
-        return f"{self.title} {self.date} {self.author}"
+        return f"{self.title}"
 
 
 class Comment(models.Model):

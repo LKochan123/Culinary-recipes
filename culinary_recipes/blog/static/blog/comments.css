@@ -1,12 +1,66 @@
 .comments-section {
-    margin-top: 30px;
+    margin: 30px;
 }
+
+.comments .zero-comments {
+    text-align: center;
+    margin: 10px;
+}
+
+.comments {
+    width: clamp(200px, 90%, 800px);
+    margin: 30px auto;
+    border: 2px solid black;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .8);
+    border-radius: 5px;
+}
+
+.comments ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comments li {
+    width: fit-content;
+    margin: 10px 5px ;
+    border-radius: 10px;
+    padding: 7px 10px;
+    background-color: rgb(203, 154, 63);
+}
+
+.comments li .comment-text {
+    display: inline;
+    margin: 0;
+    word-break: break-all;
+}
+
+.comments .top-section {
+    display: flex;
+    justify-content: start;
+    align-items: end;
+}
+
+.comments .top-section p,
+.comments .top-section h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.comments .top-section h6 {
+    font-weight: 600;
+}
+
+.comments .top-section p {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+/* Comment form section */
 
 form {
     margin: 0 auto;
-    min-width: 270px;
-    width: 80%;
-    max-width: 550px;
+    width: clamp(200px, 80%, 500px);
     padding: 5px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, .8);
@@ -40,8 +94,8 @@ form {
 }
 
 .buttons button {
-    padding: 5px 8px;
-    margin: 8px;
+    padding: 5px;
+    margin: 7px;
     border-radius: 5px;
     cursor: pointer;
     color: white;
@@ -52,4 +106,15 @@ form {
 
 .buttons button:hover {
     background-color: rgb(180, 127, 53);
+}
+
+.form-section .errorlist {
+    list-style: none;
+    color: rgb(222, 53, 24);
+    padding: 0;
+}
+
+.input-error input,
+.input-error textarea {
+    border: 2px solid rgb(222, 53, 24);
 }

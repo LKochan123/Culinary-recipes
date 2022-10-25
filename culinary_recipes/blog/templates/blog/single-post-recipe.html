@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}
 
 {% block title  %}
     {{ post.title }}
@@ -37,17 +38,35 @@
     </main>
 
     <section class="comments-section">
-        {% csrf_token %}
+
+        <div class="comments">
+            {% if comments.count == 0 %}
+                <p class="zero-comments">Brak komentarzy, możesz dodać pierwszy komentarz!</p>
+            {% endif %}
+            <ul>
+                {% for comment in comments %}
+                    <li>
+                        <div class="top-section">
+                            <h6>{{ comment.nickname }}</h6>
+                            <p>{{ comment.date|naturalday }}</p>
+                        </div>
+                        <p class="comment-text">{{ comment.text }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
         <form action="{% url "single-recipe-page" post.slug %}" method="POST">
+            {% csrf_token %}
             {% for input in comment_input_section %}
-                <div class="form-section">
+                <div class="form-section {% if input.errors %}input-error{% endif %}">
                     {{ input.label_tag }}
                     {{ input }}
                     {{ input.errors }}
                 </div>
             {% endfor %}
             <div class="buttons">
-                <button class="delete-comment-btn">Anuluj</button>
+                <button class="delete-comment-btn" type="button">Anuluj</button>
                 <button class="add-comment">Skomentuj</button>
             </div>
         </form>
