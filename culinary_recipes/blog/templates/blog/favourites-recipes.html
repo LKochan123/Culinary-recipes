@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title  %}
+    Ulubione przepisy
+{% endblock  %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post.css" %}">
+    <link rel="stylesheet" href="{% static "blog/favourites.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <section class="favourites-section">
+        {% if not has_posts %}
+        <div class="more-space">
+            <p class="empty-fav">Póki co nie dodałeś jeszcze żadnych przepisów do swoich ulubionych. 🙁</p>
+        </div>
+        {% endif %}
+
+        {% if has_posts %}
+        <h2>Twoje ulubione przepisy! ⭐</h2>
+        <div class="underline"></div>
+
+        <div class="row justify-content-center posts-section">
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </section>
+{% endblock %}

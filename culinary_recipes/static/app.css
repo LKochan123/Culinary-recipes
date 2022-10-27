@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+.shadow-bg {
+  background-color: whitesmoke;
+}
+
 html {
   scroll-padding-top: 53px;
 }
@@ -14,6 +18,20 @@ body {
     position: relative;
     font-family: "Montserrat", sans-serif;
     background-color: whitesmoke;
+}
+
+h2 {
+  font-size: 26px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+
+.underline {
+  height: 3px;
+  width: 100px;
+  background-color: rgb(199, 82, 15);
+  margin: 0 auto 30px;
 }
 
 nav {
@@ -61,6 +79,15 @@ nav .navbar-center {
 nav .orange-text {
     color: rgb(199, 82, 15);
     font-weight: bold;
+}
+
+nav .last-link {
+  transition: color .4s ease-in-out, box-shadow .4s ease-in-out;
+}
+
+nav .last-link:hover {
+    color: white;
+    box-shadow: inset 200px 0 0 0 rgb(202, 111, 58);
 }
 
 .page {

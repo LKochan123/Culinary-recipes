@@ -27,8 +27,19 @@
                     </ul>
                 </div>
             </div>
-            <div class="photo box col-md-6">
+            <div class="photo box col-md-6" id="fav">
                 <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                <form action="{% url "favourites" %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{ post.id }}" name="post_id">
+                    <button>
+                        {% if is_fav %}
+                            Usuń z ulubionych! ⭐
+                        {% else %}
+                            Dodaj do ulubionych! ⭐
+                        {% endif %}
+                    </button>
+                </form>
             </div>
         </section>
 
@@ -56,7 +67,7 @@
             </ul>
         </div>
 
-        <form action="{% url "single-recipe-page" post.slug %}" method="POST">
+        <form action="{% url "single-recipe-page" post.slug %}" method="POST" class="form">
             {% csrf_token %}
             {% for input in comment_input_section %}
                 <div class="form-section {% if input.errors %}input-error{% endif %}">

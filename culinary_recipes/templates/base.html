@@ -27,10 +27,8 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link" href="{% url "starting-page" %}">strona główna</a>
-                    <a class="nav-link" href="{% url "starting-page" %}#aboutus">o nas</a>
-                    <a class="nav-link" href="{% url "starting-page" %}#best-recipes">najnowsze</a>
-                    <a class="nav-link" href="{% url "starting-page" %}#other">inne</a>
-                    <a class="nav-link orange-text" href="{% url "all-recipes-page" %}">baza przepisów</a>
+                    <a class="nav-link" href="{% url "favourites" %}">ulubione</a>
+                    <a class="nav-link orange-text last-link" href="{% url "all-recipes-page" %}">baza przepisów</a>
                 </div>
             </div>
         </div>
@@ -56,6 +54,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
     </script>
-    {% comment %} <script src="./js/main.js"></script> {% endcomment %}
 </body>
 </html>

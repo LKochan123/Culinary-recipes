@@ -1,21 +1,3 @@
-.shadow-bg {
-    background-color: whitesmoke;
-}
-
-h2 {
-    font-size: 26px;
-    text-align: center;
-    text-transform: uppercase;
-    margin-top: 30px;
-}
-
-.underline {
-    height: 3px;
-    width: 100px;
-    background-color: rgb(199, 82, 15);
-    margin: 0 auto 30px;
-}
-
 .photo-and-ingridients {
     display: flex;
     flex-direction: row;
@@ -41,6 +23,23 @@ h2 {
     border-radius: 8px;
 }
 
+.photo button {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    margin-top: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color .3s, color .3s;
+}
+
+.photo button:hover,
+.photo button:active {
+    background-color: black;
+    color: white;
+}
+
 .text {
     text-align: center;
     font-size: 15px;
@@ -48,8 +47,7 @@ h2 {
 
 @media (min-width: 576px) {
     .photo {
-        width: 300px;
-        height: 200px;
+        width: 350px;
     }
 }
 

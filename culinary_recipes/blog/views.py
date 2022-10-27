@@ -1,10 +1,9 @@
-from .models import Post
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView
 from django.views import View
 from django.urls import reverse
 from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from .models import Post
 from .forms import CommentForm
 
 
@@ -32,14 +31,33 @@ class AllRecipesView(ListView):
 
 class SingleRecipeView(View):
 
-    def get(self, request, slug):
+    def is_fav_button(self, request, post_id):
+        stored_recipes = request.session.get("stored_recipes")
+
+        if stored_recipes is None:
+            is_fav = False
+        else:
+            is_fav = post_id in stored_recipes
+
+        return is_fav
+
+    def help_context_method(self, request, comment_input, slug):
         post = Post.objects.get(slug=slug)
+
         context = {
             "post": post,
             "ingridients": post.ingridients.all(),
-            "comment_input_section": CommentForm(),
-            "comments": post.comments.all().order_by("-id")
+            "comment_input_section": comment_input,
+            "comments": post.comments.all().order_by("-id"),
+            "is_fav": self.is_fav_button(request, post.id)
         }
+
+        return context
+
+    def get(self, request, slug):
+        comment = CommentForm()
+        context = self.help_context_method(request, comment, slug)
+
         return render(request, "blog/single-post-recipe.html", context)
 
     def post(self, request, slug):
@@ -52,22 +70,40 @@ class SingleRecipeView(View):
             comment.save()
             return HttpResponseRedirect(reverse("single-recipe-page", args=[slug]))
 
-        context = {
-            "post": post,
-            "ingridients": post.ingridients.all(),
-            "comment_input_section": comment_input_section,
-            "comments": post.comments.all().order_by("-id")
-        }
+        context = self.help_context_method(
+            request, comment_input_section, slug)
 
         return render(request, "blog/single-post-recipe.html", context)
 
 
-# class SingleRecipeView(DetailView):
-#     template_name = "blog/single-post-recipe.html"
-#     model = Post
+class FavouriteView(View):
+    def get(self, request):
+        stored_recipes = request.session.get("stored_recipes")
 
-#     def get_context_data(self, **kwargs):
-#         data = super().get_context_data(**kwargs)
-#         data["ingridients"] = self.object.ingridients.all()
-#         data["comment_input_section"] = CommentForm()
-#         return data
+        context = {}
+
+        if stored_recipes is None or not len(stored_recipes):
+            context["posts"] = []
+            context["has_posts"] = False
+        else:
+            posts = Post.objects.filter(id__in=stored_recipes)
+            context["posts"] = posts
+            context["has_posts"] = True
+
+        return render(request, "blog/favourites-recipes.html", context)
+
+    def post(self, request):
+        stored_posts = request.session.get("stored_recipes")
+
+        if stored_posts is None:
+            stored_posts = []
+
+        post_id = int(request.POST["post_id"])
+
+        if post_id not in stored_posts:
+            stored_posts.append(post_id)
+        else:
+            stored_posts.remove(post_id)
+        request.session["stored_recipes"] = stored_posts
+
+        return HttpResponseRedirect("/")

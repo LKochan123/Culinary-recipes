@@ -1,0 +1,14 @@
+.more-space {
+    margin: 40px;
+}
+
+.empty-fav {
+    font-size: 22px;
+    text-align: center;
+    padding: 20px;
+    margin: 0 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(253,254,255,1) 0%, rgba(231,226,226,1) 50%, rgba(199,224,230,1) 100%, rgba(0,212,255,1) 100%);
+}
