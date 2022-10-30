@@ -14,7 +14,8 @@ h6 {
 .comments {
     width: clamp(200px, 90%, 800px);
     margin: 30px auto;
-    border: 2px solid black;
+    color: black;
+    border: 2px solid var(--text-color);
     box-shadow: 0 2px 8px rgba(0, 0, 0, .8);
     border-radius: 5px;
 }
@@ -66,9 +67,10 @@ h6 {
     margin: 0 auto;
     width: clamp(200px, 90%, 500px);
     padding: 5px;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, .8);
-    border: 2px solid black;
 }
 
 .form-section {

@@ -6,11 +6,16 @@
     margin-bottom: 20px;
 }
 
+h5 {
+    color: var(--text-color);
+}
+
 .ingridients {
     text-align: center;
 }
 
 .ingridients ul {
+    color: var(--text-color);
     list-style: circle;
 }
 
@@ -41,6 +46,7 @@
 }
 
 .text {
+    color: var(--text-color);
     text-align: center;
     font-size: 15px;
 }
