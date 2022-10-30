@@ -30,10 +30,13 @@ h5 {
 
 .photo button {
     position: relative;
+    color: var(--text-color);
+    background: none;
     left: 50%;
     transform: translateX(-50%);
     padding: 4px 8px;
     margin-top: 8px;
+    border: 1px solid var(--text-color);
     border-radius: 5px;
     cursor: pointer;
     transition: background-color .3s, color .3s;
@@ -41,8 +44,8 @@ h5 {
 
 .photo button:hover,
 .photo button:active {
-    background-color: black;
-    color: white;
+    background-color: var(--text-color);
+    color: var(--background-color);
 }
 
 .text {

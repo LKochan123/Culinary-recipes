@@ -1,33 +1,36 @@
+const body = document.querySelector('body')
 const nav = document.querySelector('.navbar')
 const colorBtn = document.querySelector('nav .navbar-nav .color-btn')
-
-let theme = localStorage.getItem('theme') || 'dark'
-let root = document.documentElement
+let theme = localStorage.getItem('theme')
 
 const addShadow = () => {
     window.scrollY > 1 ? nav.classList.add('shadow-bg') : nav.classList.remove('shadow-bg')
 }
 
 const darkTheme = () => {
-    root.style.setProperty('--backgorund-color', 'black')
-    root.style.setProperty('--text-color', 'white')
+    theme = 'dark'
+    body.classList.add('dark')
+    body.classList.remove('light')
     colorBtn.innerHTML = '<i class="fa-regular fa-lightbulb"></i>'
-    // theme = 'dark'
-    // localStorage.setItem('theme', theme)
 }
 
 const lightTheme = () => {
-    root.style.setProperty('--backgorund-color', '#F5F5F5')
-    root.style.setProperty('--text-color', '#000000')
+    theme = 'light'
+    body.classList.remove('dark')
+    body.classList.add('light')
     colorBtn.innerHTML = '<i class="fa-regular fa-moon"></i>'
-    // theme = 'light'
-    // localStorage.setItem('theme', theme)
 }
 
 const checkColorMode = () => {
-    !colorBtn.classList.contains('dark') ? darkTheme() : lightTheme()
-    colorBtn.classList.toggle('dark')
+    theme === 'light' ? darkTheme() : lightTheme()
+    localStorage.setItem('theme', theme)
 }
 
+const checkUserColorPreference = () => {
+    if (theme === 'dark') body.classList.add('dark')
+    if (theme === 'light') body.classList.add('light')
+}
+
+checkUserColorPreference()
 colorBtn.addEventListener('click', checkColorMode)
 window.addEventListener('scroll', addShadow)
