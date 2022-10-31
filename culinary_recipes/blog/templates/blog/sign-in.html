@@ -1,0 +1,38 @@
+{% extends 'loging.html' %}
+{% load static %}
+
+{% block title %} 
+    Zaloguj się 
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/sign-in.css" %}">
+{% endblock  %}
+
+{% block contetnt %}
+    <h1>Zaloguj się</h1>
+
+    <div class="form-box">
+        <label for="username">Nazwa użytkownika:</label>
+        <input type="text" id="username" name="username" placeholder="Podaj nazwę użytkownika...">
+        <p class="err-txt"></p>
+    </div>
+
+    <div class="form-box">
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" name="password" placeholder="Podaj hasło...">
+        <p class="err-txt"></p>
+    </div>
+
+    <div class="btns">
+        <button type="button">Anuluj</button>
+        <button class="login">Zaloguj się</button>
+    </div>
+
+    <p class="error-text">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </p>
+    <p class="text-info">Nie masz jeszce konta? <a href="{% url "sign-up" %}">Stwórz konto.</a></p>
+{% endblock %}

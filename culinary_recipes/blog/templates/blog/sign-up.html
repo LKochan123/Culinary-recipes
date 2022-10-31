@@ -1,0 +1,50 @@
+{% extends 'loging.html' %}
+{% load static %}
+
+{% block title %} 
+    Zarejstruj się 
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/sign-in.css" %}">
+{% endblock  %}
+
+{% block contetnt %}
+    <h1>Zarejstruj się</h1>
+
+    <div class="form-box">
+        <label for="username">Nazwa użytkownika:</label>
+        <input type="text" id="username" name="username" placeholder="Podaj nazwę użytkownika...">
+        <p class="err-txt"></p>
+    </div>
+
+    <div class="form-box">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Podaj adres email...">
+        <p class="err-txt"></p>
+    </div>
+
+    <div class="form-box">
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" name="password" placeholder="Podaj hasło...">
+        <p class="err-txt"></p>
+    </div>
+
+    <div class="form-box">
+        <label for="check-password">Powtórz hasło:</label>
+        <input type="password" id="check-password" name="check-password" placeholder="Powtórz hasło...">
+        <p class="err-txt"></p>
+    </div>
+
+    <div class="btns">
+        <button type="button">Anuluj</button>
+        <button class="login">Zarejstruj się</button>
+    </div>
+
+    <p class="error-text">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </p>
+    <p class="text-info">Masz już konto? <a href="{% url "sign-in" %}">Zaloguj się.</a></p>
+{% endblock %}

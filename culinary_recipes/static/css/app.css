@@ -10,7 +10,6 @@
   --background-color: #F5F5F5;
   --main-color: #C7520F;
   --text-color: #000;
-  --footer-color: gray;
   --white-color: white;
   --container: 1100px;
 }
@@ -27,7 +26,7 @@
   --text-color: white;
 }
 
-/* Klasa dodająca kolor na nawigację */
+/* Klasa dodająca kolor/cień na nawigację */
 
 .shadow-bg {
   background-color: var(--background-color);
@@ -130,6 +129,16 @@ nav .last-link:hover {
   box-shadow: inset 200px 0 0 0 rgb(202, 111, 58);
 }
 
+nav .username {
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav .username:hover {
+  color: rgb(19, 226, 19);
+}
+
 .page {
   width: 90vw;
   max-width: var(--container);
@@ -140,7 +149,7 @@ nav .last-link:hover {
 .page .hero {
   position: relative;
   height: 40vh;
-  background: url("./img/bread_640.jpg") center/cover no-repeat;
+  background: url("../img/bread_640.jpg") center/cover no-repeat;
   border-radius: 10px;
   overflow: hidden;
 }
