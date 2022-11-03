@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Author, Ingridient, Level, Comment
+from .models import Post, Author, Ingridient, Comment
 
 # Register your models here.
 
@@ -15,12 +15,11 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_filter = ("post", "nickname")
-    list_display = ("nickname", "post")
+    list_filter = ("post",)
+    list_display = ("post",)
 
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Ingridient)
-admin.site.register(Level)
 admin.site.register(Comment, CommentAdmin)

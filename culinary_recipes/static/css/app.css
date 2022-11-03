@@ -65,11 +65,11 @@ nav {
 }
   
 nav .navbar-brand {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 nav .navbar-toggler {
-    padding: 1px 3px;
+  padding: 1px 3px;
 }
 
 nav .navbar-nav {
@@ -129,14 +129,17 @@ nav .last-link:hover {
   box-shadow: inset 200px 0 0 0 rgb(202, 111, 58);
 }
 
-nav .username {
-  color: green;
-  font-weight: bold;
-  text-decoration: none;
+.username {
+  color: var(--text-color);
+  background: none;
+  border: 2px solid var(--text-color);
+  transition: background-color .3s, border .3s, color .3s;
 }
 
-nav .username:hover {
-  color: rgb(19, 226, 19);
+.username:hover {
+  background-color: gray;
+  border: 2px solid gray;
+  color: var(--white-color);
 }
 
 .page {

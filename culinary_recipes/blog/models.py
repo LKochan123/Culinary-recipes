@@ -24,13 +24,6 @@ class Ingridient(models.Model):
         return f"{self.ingridient}"
 
 
-class Level(models.Model):
-    level = models.CharField(max_length=10)
-
-    def __str__(self):
-        return f"{self.level}"
-
-
 class Post(models.Model):
     date = models.DateField(auto_now=True)
     title = models.CharField(max_length=30)
@@ -38,7 +31,6 @@ class Post(models.Model):
     rating = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(10)], default=None)
     short_description = models.CharField(max_length=100)
-    level = models.ForeignKey(Level, on_delete=models.SET_NULL, null=True)
     time_to_prepere_in_minutes = models.PositiveIntegerField(default=None)
     kcal = models.PositiveIntegerField(default=None)
     slug = models.SlugField(unique=True, db_index=True)
@@ -50,17 +42,17 @@ class Post(models.Model):
         return f"{self.title}"
 
 
-class Comment(models.Model):
-    nickname = models.CharField(max_length=30)
-    date = models.DateField(auto_now=True)
-    text = models.TextField(max_length=200)
-    post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name="comments")
-
-
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     id_user = models.IntegerField()
 
     def __str__(self):
         return self.user
+
+
+class Comment(models.Model):
+    nickname = models.CharField(max_length=30)
+    date = models.DateField(auto_now_add=True)
+    text = models.TextField(max_length=500)
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comments")

@@ -26,7 +26,7 @@ form {
 }
   
 form .website-icon {
-    color: rgb(7, 160, 237);
+    color: #4CAF50;
     font-size: 25px;
     display: flex;
     justify-content: flex-end;
@@ -35,5 +35,5 @@ form .website-icon {
 }
   
 form .website-icon:hover {
-    color: rgb(7, 105, 196);
+    color: #266228;
 }

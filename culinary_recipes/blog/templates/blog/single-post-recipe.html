@@ -52,13 +52,17 @@
 
         <div class="comments">
             {% if comments.count == 0 %}
+                {% if request.user.is_authenticated %}
                 <p class="zero-comments">Brak komentarzy, możesz dodać pierwszy komentarz!</p>
+                {% else %}
+                <p class="zero-comments">Brak komentarzy!</p>
+                {% endif %}
             {% endif %}
             <ul>
                 {% for comment in comments %}
                     <li>
                         <div class="top-section">
-                            <h6>{{ comment.nickname }}</h6>
+                            <h6>{{ comment.nickname }}</h6> 
                             <p>{{ comment.date|naturalday }}</p>
                         </div>
                         <p class="comment-text">{{ comment.text }}</p>
@@ -67,10 +71,12 @@
             </ul>
         </div>
 
+        {% if request.user.is_authenticated %}
         <form action="{% url "single-recipe-page" post.slug %}" method="POST" class="form">
             {% csrf_token %}
+            <p class="actual-nick" >Komentujesz jako <span>{{ user.username }}</span></p>
             {% for input in comment_input_section %}
-                <div class="form-section {% if input.errors %}input-error{% endif %}">
+                <div class="form-section {% if input.errors %} input-error {% endif %}">
                     {{ input.label_tag }}
                     {{ input }}
                     {{ input.errors }}
@@ -81,5 +87,10 @@
                 <button class="add-comment">Skomentuj</button>
             </div>
         </form>
+        {% else %}
+        <div class="create-acc">
+            <p><a href="{% url "sign-up" %}">Stwórz konto</a> aby mieć możliwość komentowania postów.</p>
+        </div>
+        {% endif %}
     </section>
 {% endblock %}

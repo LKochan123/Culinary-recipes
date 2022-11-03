@@ -14,7 +14,7 @@ h6 {
 
 .comments {
     width: clamp(200px, 90%, 800px);
-    margin: 30px auto;
+    margin: 20px auto;
     color: black;
     border: 2px solid var(--text-color);
     box-shadow: 0 2px 8px rgba(0, 0, 0, .8);
@@ -80,6 +80,18 @@ h6 {
     padding: 5px;
 }
 
+.actual-nick {
+    text-align: center;
+    padding: 2px;
+    margin-bottom: 0;
+}
+
+.actual-nick span {
+    font-style: italic;
+    color: rgb(188, 71, 25);
+    font-weight: bold;
+}
+
 .form-section label {
     font-weight: bold;
 }
@@ -92,6 +104,7 @@ h6 {
 
 .form-section textarea {
     height: 60px;
+    max-height: 150px;
 }
 
 .buttons {
@@ -124,4 +137,23 @@ h6 {
 .input-error input,
 .input-error textarea {
     border: 2px solid rgb(222, 53, 24);
+}
+
+/* Comments info if not login */
+
+.create-acc {
+    margin: 0 auto;
+    text-align: center;
+    width: clamp(200px, 90%, 500px);
+    border: 2px solid rgb(246, 66, 34);
+}
+
+.create-acc a {
+    text-decoration: none;
+}
+
+.create-acc p {
+    padding: 10px;
+    margin-bottom: 0;
+    color: var(--text-color)
 }

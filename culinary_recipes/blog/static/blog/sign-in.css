@@ -35,7 +35,7 @@ h1 {
 .btns button {
     padding: 10px 12px;
     color: white;
-    background-color: rgb(7, 160, 237);
+    background-color: #4CAF50;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -43,7 +43,7 @@ h1 {
 }
 
 .btns button:hover {
-    background-color: rgb(7, 105, 196);
+    background-color: #266228;
 }
 
 .btns .login {
