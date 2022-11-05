@@ -1,20 +1,9 @@
 from django.db import models
-from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
 # Create your models here.
-
-
-class Author(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
-    e_mail = models.EmailField()
-
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
 
 
 class Ingridient(models.Model):
@@ -25,18 +14,22 @@ class Ingridient(models.Model):
 
 
 class Post(models.Model):
+
+    class NewManager(models.Manager):
+        def get_queryset(self):
+            return super().get_queryset()
+
     date = models.DateField(auto_now=True)
     title = models.CharField(max_length=30)
     image = models.ImageField(upload_to="posts", null=True)
-    rating = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(10)], default=None)
     short_description = models.CharField(max_length=100)
-    time_to_prepere_in_minutes = models.PositiveIntegerField(default=None)
-    kcal = models.PositiveIntegerField(default=None)
     slug = models.SlugField(unique=True, db_index=True)
     content = models.TextField()
-    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
     ingridients = models.ManyToManyField(Ingridient)
+    favourites = models.ManyToManyField(
+        User, related_name='favourite', blank=True)
+    objects = models.Manager()
+    newmanager = NewManager()
 
     def __str__(self):
         return f"{self.title}"

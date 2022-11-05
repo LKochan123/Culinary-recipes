@@ -17,6 +17,30 @@
     color: var(--text-color);
 }
 
+.questions .question-title {
+    font-size: 19px;
+    color: var(--question-color);
+    margin-left: 20px;
+}
+
+.questions .answer {
+    font-size: 15px;
+    color: var(--text-color);
+    margin: 0 20px 30px 20px;
+}
+
+@media (min-width: 576px) {
+    .questions .question-title {
+        font-size: 20px;
+        margin-left: 30px;
+    }
+
+    .questions .answer {
+        font-size: 16px;
+        margin: 0 30px 30px 30px;
+    }
+}
+
 
 @media (min-width: 1200px) {
     .icon-section {

@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import ListView
 from django.views import View
 from django.urls import reverse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -31,7 +31,7 @@ class AllRecipesView(ListView):
     template_name = "blog/all-recipes.html"
     model = Post
     context_object_name = "all_recipes"
-    ordering = ["-rating"]
+    ordering = ["-date"]
 
 
 class SingleRecipeView(View):
@@ -47,14 +47,19 @@ class SingleRecipeView(View):
         return is_fav
 
     def help_context_method(self, request, comment_input, slug):
-        post = Post.objects.get(slug=slug)
+        post = get_object_or_404(Post, slug=slug)
+        is_favourite_login = False
+
+        if post.favourites.filter(id=request.user.id).exists():
+            is_favourite_login = True
 
         context = {
             "post": post,
             "ingridients": post.ingridients.all(),
             "comment_input_section": comment_input,
             "comments": post.comments.all().order_by("-id"),
-            "is_fav": self.is_fav_button(request, post.id)
+            "is_fav": self.is_fav_button(request, post.id),
+            "is_favourite_login": is_favourite_login
         }
 
         return context
@@ -75,8 +80,6 @@ class SingleRecipeView(View):
             actual_date = datetime.now()
 
             c = Comment(nickname=name, date=actual_date, text=body, post=post)
-            # comment = comment_input_section.save(commit=False)
-            # comment.post = post
             c.save()
             return HttpResponseRedirect(reverse("single-recipe-page", args=[slug]))
 
@@ -186,6 +189,34 @@ class SignInView(View):
         else:
             messages.info(request, 'Wypełnij powyższe pola aby się zalogować.')
             return redirect('sign-in')
+
+
+@login_required
+def favourite_list(request):
+    new = Post.newmanager.filter(favourites=request.user)
+
+    has_posts = True
+    if new is None or len(new) == 0:
+        has_posts = False
+
+    context = {
+        "posts": new,
+        "has_posts": has_posts
+    }
+
+    return render(request, "blog/favourites-recipes.html", context)
+
+
+@login_required
+def fav_add(request, id):
+    post = get_object_or_404(Post, id=id)
+
+    if post.favourites.filter(id=request.user.id).exists():
+        post.favourites.remove(request.user)
+    else:
+        post.favourites.add(request.user)
+
+    return HttpResponseRedirect("/")
 
 
 def logout(request):

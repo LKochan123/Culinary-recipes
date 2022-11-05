@@ -11,6 +11,8 @@
   --main-color: #C7520F;
   --text-color: #000;
   --white-color: white;
+  --link-color: rgb(7, 7, 146);
+  --question-color: rgb(215, 76, 25);
   --container: 1100px;
 }
 
@@ -19,11 +21,15 @@
 .light {
   --background-color: #F5F5F5;
   --text-color: #000;
+  --link-color: rgb(7, 7, 146);
+  --question-color: rgb(215, 76, 25);
 }
 
 .dark {
   --background-color: #000;
   --text-color: white;
+  --link-color: rgb(46, 152, 205);
+  --question-color: rgb(176, 70, 31);
 }
 
 /* Klasa dodająca kolor/cień na nawigację */

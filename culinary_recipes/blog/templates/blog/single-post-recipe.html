@@ -29,17 +29,27 @@
             </div>
             <div class="photo box col-md-6" id="fav">
                 <img src="{{ post.image.url }}" alt="{{ post.title }}">
-                <form action="{% url "favourites" %}" method="POST">
-                    {% csrf_token %}
-                    <input type="hidden" value="{{ post.id }}" name="post_id">
-                    <button>
-                        {% if is_fav %}
-                            Usuń z ulubionych! ⭐
+                {% if request.user.is_authenticated %}
+                    <div class="favourite">
+                        {% if is_favourite_login %}
+                            <a href="{% url "favourite-add" post.id %}"><i class="fas fa-heart fa-lg"></i></a>
                         {% else %}
-                            Dodaj do ulubionych! ⭐
+                            <a href="{% url "favourite-add" post.id %}"><i class="far fa-heart fa-lg"></i></a>
                         {% endif %}
-                    </button>
-                </form>
+                    </div>
+                {% else %}
+                    <form action="{% url "favourites" %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ post.id }}" name="post_id">
+                        <button>
+                            {% if is_fav %}
+                                Usuń z ulubionych! ⭐
+                            {% else %}
+                                Dodaj do ulubionych! ⭐
+                            {% endif %}
+                        </button>
+                    </form>
+                {% endif %}
             </div>
         </section>
 
@@ -83,7 +93,6 @@
                 </div>
             {% endfor %}
             <div class="buttons">
-                <button class="delete-comment-btn" type="button">Anuluj</button>
                 <button class="add-comment">Skomentuj</button>
             </div>
         </form>

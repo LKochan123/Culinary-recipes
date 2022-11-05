@@ -2,7 +2,11 @@
 {% load static %}
 
 {% block title  %}
-    Ulubione przepisy
+    {% if request.user.is_authenticated %}
+        Ulubione przepisy {{ user.username|lower }}
+    {% else %}
+        Ulubione przepisy
+    {% endif %}
 {% endblock  %}
 
 {% block css_files %}

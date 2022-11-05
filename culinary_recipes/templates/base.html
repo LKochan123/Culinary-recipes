@@ -28,7 +28,11 @@
                 <div class="navbar-nav ms-auto">
                     <button class="color-btn"><i class="fa-regular fa-moon"></i></button>
                     <a class="nav-link" href="{% url "starting-page" %}">strona główna</a>
-                    <a class="nav-link" href="{% url "favourites" %}">ulubione</a>
+                    {% if request.user.is_authenticated %}
+                        <a class="nav-link" href="{% url "favourite-list" %}">ulubione</a>
+                    {% else %}
+                        <a class="nav-link" href="{% url "favourites" %}">ulubione</a>
+                    {% endif %}
                     <a class="nav-link" href="{% url "all-recipes-page" %}">baza przepisów</a>
                     {% if request.user.is_authenticated %}
                         <div class="dropdown">

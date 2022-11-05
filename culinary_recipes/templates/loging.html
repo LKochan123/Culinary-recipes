@@ -17,9 +17,10 @@
         <section class="container">
             <form action="" method="POST">
                 {% csrf_token %}
-                <a href="{% url "starting-page" %}" class="website-icon"><i class="fa-solid fa-utensils"></i></a>
-                {% block contetnt %} 
-                {% endblock %}
+                <a href="{% url "starting-page" %}" class="website-icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </a>
+                {% block contetnt %} {% endblock %}
             </form>
         </section>
 	</body>
