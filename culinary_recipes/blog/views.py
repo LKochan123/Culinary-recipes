@@ -119,7 +119,7 @@ class FavouriteView(View):
             stored_posts.remove(post_id)
         request.session["stored_recipes"] = stored_posts
 
-        return HttpResponseRedirect("/")
+        return redirect(request.META.get('HTTP_REFERER'))
 
 
 class SignUpView(View):
@@ -216,7 +216,8 @@ def fav_add(request, id):
     else:
         post.favourites.add(request.user)
 
-    return HttpResponseRedirect("/")
+    return redirect(request.META.get('HTTP_REFERER'))
+
 
 
 def logout(request):

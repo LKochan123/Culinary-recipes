@@ -15,13 +15,26 @@
 	</head>
 	<body>
         <section class="container">
+            <div class="icons">
+                <a href="{% url "starting-page" %}"><i class="fa-solid fa-utensils"></i></a>
+                <button class="info"><i class="fa-solid fa-question"></i></button>
+            </div>
+
             <form action="" method="POST">
                 {% csrf_token %}
-                <a href="{% url "starting-page" %}" class="website-icon">
-                    <i class="fa-solid fa-utensils"></i>
-                </a>
                 {% block contetnt %} {% endblock %}
             </form>
         </section>
+
+        <div class="modal-shadow">
+            <div class="modal">
+                <h3>Co zyskasz zakładając konto?</h3>
+                <p>- Możliwość komentowania postów</p>
+                <p>- Trwałe zapisanie ulubionych przepisów</p>
+                <button class="close">Zamknij</button>
+            </div>
+        </div>
+
+        <script src="{% static "js/modal.js" %}"></script>
 	</body>
 </html>

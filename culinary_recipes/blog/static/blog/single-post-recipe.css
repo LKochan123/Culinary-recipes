@@ -48,6 +48,22 @@ h5 {
     color: var(--background-color);
 }
 
+.favourite {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.favourite i {
+    font-size: 25px;
+    color: rgb(215, 83, 83);
+    transition: color .3s;
+}
+
+.favourite i:hover {
+    color: rgb(180, 50, 50);
+}
+
 .text {
     color: var(--text-color);
     text-align: center;

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load humanize %}
+{% load i18n %}
 
 {% block title  %}
     {{ post.title }}
@@ -32,9 +32,13 @@
                 {% if request.user.is_authenticated %}
                     <div class="favourite">
                         {% if is_favourite_login %}
-                            <a href="{% url "favourite-add" post.id %}"><i class="fas fa-heart fa-lg"></i></a>
+                            <a href="{% url "favourite-add" post.id %}">
+                                <i class="fas fa-heart fa-lg"></i>
+                            </a>
                         {% else %}
-                            <a href="{% url "favourite-add" post.id %}"><i class="far fa-heart fa-lg"></i></a>
+                            <a href="{% url "favourite-add" post.id %}">
+                                <i class="far fa-heart fa-lg"></i>
+                            </a>
                         {% endif %}
                     </div>
                 {% else %}
@@ -63,9 +67,9 @@
         <div class="comments">
             {% if comments.count == 0 %}
                 {% if request.user.is_authenticated %}
-                <p class="zero-comments">Brak komentarzy, możesz dodać pierwszy komentarz!</p>
+                    <p class="zero-comments">Brak komentarzy, możesz dodać pierwszy komentarz!</p>
                 {% else %}
-                <p class="zero-comments">Brak komentarzy!</p>
+                    <p class="zero-comments">Brak komentarzy!</p>
                 {% endif %}
             {% endif %}
             <ul>
@@ -73,7 +77,9 @@
                     <li>
                         <div class="top-section">
                             <h6>{{ comment.nickname }}</h6> 
-                            <p>{{ comment.date|naturalday }}</p>
+                            {% language "pl" %}
+                            <p>{{ comment.date|date }}</p>
+                            {% endlanguage %}
                         </div>
                         <p class="comment-text">{{ comment.text }}</p>
                     </li>

@@ -26,8 +26,8 @@
 }
 
 .dark {
-  --background-color: #000;
-  --text-color: white;
+  --background-color: rgb(13, 13, 13);
+  --text-color: rgb(237, 225, 225);
   --link-color: rgb(46, 152, 205);
   --question-color: rgb(176, 70, 31);
 }
