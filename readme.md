@@ -1,5 +1,5 @@
 ### About project:
-Culinary recipes project is a blog about my grandma recipes. Users can see it on responsive website, comments and do some other things.
+Culinary recipes project is a blog about my grandma recipes. Users can see it on responsive website, comment and do some other stuff.
 
 ### Technologies:
   - Django 4.1 
