@@ -21,7 +21,7 @@ Culinary recipes project is a blog about my grandma recipes. Users can see it on
 ```
 $ pip install -r requirements.txt
 ```
-4. Generate key on <a href="https://miniwebtool.com/django-secret-key-generator/" target="_blank"> this site</a> and assign it to variable SECRET_KEY in ./culinary_recipes/culinary_recipes/settings.py file.
+4. Generate key on <a href="https://miniwebtool.com/django-secret-key-generator/" target="_blank"> this site</a> and assign it to variable SECRET_KEY in settings.py file.
 5. Run this commands:
 ```
 $ python manage.py createsuperuser
