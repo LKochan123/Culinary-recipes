@@ -17,27 +17,16 @@ Culinary recipes project is a blog about my grandma recipes. Users can see it on
 ### How to run this project localy?
 1. Git clone the repository
 2. Set up a python virtual environment
-3. Run this commands:
+3. Run this command:
 ```
 $ pip install -r requirements.txt
-$ python manage.py migrate
-$ python manage.py createsuperuser
-$ python manage.py runserver
 ```
-4. Open localhost:8000 no your browser
-
-### Results
-You can create account and login
-<img src="culinary_recipes/static/img/Signup_view.png">
-
-See the main site with the most important informations
-<img src="culinary_recipes/static/img/Main_site.gif">
-
-Add favourites posts to special section for it
-<img src="culinary_recipes/static/img/Fav.gif">
-
-Comment posts if you are login
-<img src="culinary_recipes/static/img/Comments.gif">
-
-Change color of interface
-<img src="culinary_recipes/static/img/Colors.gif">
+4. Generate key on <a href="https://miniwebtool.com/django-secret-key-generator/" target="_blank"> this site</a> and assign it to variable SECRET_KEY in ./culinary_recipes/culinary_recipes/settings.py file.
+5. Run this commands:
+```
+$ python manage.py createsuperuser
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+6. Open localhost:8000 on your browser. 
+7. Add '/admin' to your URL and login with your superuser account. Now you can add recipes and create your own culinary blog. 
